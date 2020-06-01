@@ -1,3 +1,3 @@
 # empty
 
-An ardion sketch that does nothing.
+An arduino sketch that does nothing.
