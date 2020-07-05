@@ -40,7 +40,7 @@ void setup(void)
 		{
 			switch (results.decode_type)
 			{
-			case NEC:			Serial.print("NEC");			break;
+			case NEC:			Serial.println("NEC");			break;
 			case SONY:			Serial.println("SONY");			break;
 			case RC5:			Serial.println("RC5");			break;
 			case RC6:			Serial.println("RC6");			break;
