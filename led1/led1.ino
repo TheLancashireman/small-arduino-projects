@@ -1,4 +1,4 @@
-/* led1 - a two-colour LED project
+/* led1 - a three-colour LED project
  *
  * (c) 2020 David Haworth
  *
