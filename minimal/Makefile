@@ -1,6 +1,6 @@
 ARDUINO_BASE			= /data1/projects/arduino
 ARDUINO_DIR				= $(ARDUINO_BASE)/arduino-1.6.8
-TARGET					= timing
+TARGET					= minimal
 MCU						= atmega328p
 F_CPU					= 16000000
 ARDUINO_PORT			= /dev/ttyUSB0
