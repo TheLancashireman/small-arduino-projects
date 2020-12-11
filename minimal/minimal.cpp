@@ -25,8 +25,6 @@ int main(void)
 {
 	init();
 
-	millis();
-
 	for (;;)
 	{
 	}
