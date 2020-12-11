@@ -24,6 +24,10 @@ extern void init(void);
 int main(void)
 {
 	init();
+	sei();
+
+	Serial.begin(115200);
+	Serial.println("Hello world!");
 
 	for (;;)
 	{
