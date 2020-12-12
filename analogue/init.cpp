@@ -1,4 +1,4 @@
-/* my_init - my own init() function
+/* init.cpp - my own init() function. Blocks accidental use of millis(), micros() etc.
  *
  * (c) 2020 David Haworth
  *

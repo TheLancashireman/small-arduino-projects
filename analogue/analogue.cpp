@@ -25,15 +25,44 @@
 
 extern void init(void);
 
+static void setup_t0(void);
+
 int main(void)
 {
 	init();
+	setup_t0();
 	sei();
 
 	Serial.begin(115200);
 	Serial.println("Hello world!");
 
+	Serial.print("TCCR0A = ");
+	Serial.println(TCCR0A);
+	Serial.print("TCNT0 = ");
+	Serial.println(TCNT0);
+	Serial.print("TCNT0 = ");
+	Serial.println(TCNT0);
+
 	for (;;)
 	{
 	}
+}
+
+static void setup_t0(void)
+{
+	GTCCR = 0;
+#if 0
+	TCCR0A = COM0A1 | COM0B1 | WGM01 | WGM00;	/* Fast PWM, non-inverting on outputs A and B */
+	TCCR0B = CS00;				/* Enable counter, prescaler = 1; WGM02 = 0 */
+#else
+	TCCR0A = 0xa3;				/* Fast PWM, non-inverting on outputs A and B */
+	TCCR0B = 0x01;				/* Enable counter, prescaler = 1; WGM02 = 0 */
+#endif
+	TIMSK0 = 0;					/* Disable all the interrupts */
+	TCNT0 = 0;
+	OCR0A = 0x80;				/* 50% duty cycle */
+	OCR0B = 0x40;				/* 25% duty cycle */
+	TIFR0 = 0x07;				/* Clear all pending interrupts */
+
+	DDRD |= (1<<5) | (1<<6);	/* Set PD5/OC0B and PD6/OC0A to output */
 }
